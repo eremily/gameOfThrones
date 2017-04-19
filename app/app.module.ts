@@ -6,12 +6,15 @@ import { HttpModule } from '@angular/http';
 import { routing } from './app.routes';
 
 import { AppComponent }  from './app.component';
-import { PeopleListComponent } from './people-list.component';
-import { PersonDetailsComponent } from './person-details.component';
+import { HouseListComponent }  from './houselist.component';
+import { HouseDetailsComponent } from './house-details.component';
+import { CharacterListComponent }  from './characterlist.component';
+import { CharacterDetailsComponent } from './character-details.component';
 
 @NgModule({
   imports: [ BrowserModule, routing, FormsModule, HttpModule],
-  declarations: [ AppComponent, PeopleListComponent, PersonDetailsComponent],
+  declarations: [ AppComponent, HouseListComponent, HouseDetailsComponent,
+  CharacterListComponent, CharacterDetailsComponent],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

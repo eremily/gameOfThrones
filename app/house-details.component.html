@@ -1,0 +1,13 @@
+<!-- new syntax for ng-if -->
+<section *ngIf="house">
+  <section>
+    <h2>You selected: {{house.name}}</h2>
+    <h3>House Name</h3>
+    <p>{{house.name}}</p>
+    <h3>Region</h3>
+    <p>{{house.region}}</p>
+    <h3>Coat Of Arms</h3>
+    <p>{{house.coatOfArms}}</p>
+    <button (click)="gotoHouseList()">Back to houses list</button>
+  </section>
+ 

@@ -1,24 +1,35 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import { PeopleListComponent } from './people-list.component';
-import { PersonDetailsComponent } from './person-details.component';
+import { HouseListComponent } from './houselist.component';
+import { HouseDetailsComponent } from './house-details.component';
+import { CharacterListComponent } from './characterlist.component';
+import { CharacterDetailsComponent } from './character-details.component';
+
 
 // Route config let's you map routes to components
 const routes: Routes = [
-  // map '/persons' to the people list component
   {
-    path: 'persons',
-    component: PeopleListComponent,
+    path: 'characters',
+    component: CharacterListComponent,
+    pathMatch: 'full'
   },
-  // map '/persons/:id' to person details component
   {
-    path: 'persons/:id',
-    component: PersonDetailsComponent
+    path: 'characters/:id',
+    component: CharacterDetailsComponent,
   },
-  // map '/' to '/persons' as our default route
+  {
+    path: 'houses',
+    component: HouseListComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'houses/:id',
+    component: HouseDetailsComponent,
+  },
+  // map '/' to '/characters' as our default route
   {
     path: '',
-    redirectTo: '/persons',
+    redirectTo: '/characters',
     pathMatch: 'full'
   },
 ];

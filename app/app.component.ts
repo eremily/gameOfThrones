@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
-import { PeopleService } from './people.service';
+import { HouseService } from './house.service';
+import { CharacterService } from './character.service';
+
 
 @Component({
   selector: 'my-app',
   template: `
   <h1> {{title}} </h1>
-  <router-outlet>
+  <router-outlet></router-outlet>
   `,
-  providers: [PeopleService]
+  providers: [HouseService,CharacterService]
 })
 export class AppComponent {
-  title:string = 'Star Wars Peoplez!';
+  title:string = 'Game Of Thrones!';
 }

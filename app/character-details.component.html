@@ -1,0 +1,23 @@
+<!-- new syntax for ng-if -->
+<section *ngIf="character">
+  <section>
+    <a *ngIf="character.name == '' ">
+        <h2>You selected: {{character.name}}</h2>
+        Character {{character.id}}
+        {{character.name}}
+        <h3>Character Name</h3>
+        <p>Unknown</p>
+    </a>
+    <h3>Character Name</h3>
+    <p>{{character.name}}</p>
+    <h3>Gender</h3>
+    <p>{{character.gender}}</p>
+    <h3>Culture</h3>
+    <p>{{character.culture}}</p>
+    <h3>Born</h3>
+    <p>{{character.born}}</p>
+    <h3>Died</h3>
+    <p>{{character.died}}</p>
+    <button (click)="gotoCharacterList()">Back to Characters list</button>
+  </section>
+ 
