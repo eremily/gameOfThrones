@@ -7,7 +7,34 @@ import { HouseService } from './house.service';
 
 @Component({
   selector: 'house-details',
-  templateUrl: 'app/house-details.component.html'
+  template:`
+      <div *ngIf="house">
+        <section class="top">   
+            <div class="wrapper content_header clearfix">
+              <h1 class="title">House Name: {{house.name}}
+                <a *ngIf="house.name == '' ">
+                      {{house.name}}
+                      Unknown
+                </a>
+              </h1>
+            </div>      
+        </section><!-- end top -->
+
+        <section class="wrapper">
+            <div class="content">
+                <h4 class="title">Region</h4>
+                <p>{{house.region}}</p>
+
+                <h4 class="title">Coat Of Arms</h4>
+
+                <p>{{house.coatOfArms}}</p>
+
+         
+            </div><!-- end content -->
+            <button class="btn btn-default" (click)="gotoHouseList()">Back to houses list</button>
+        </section>
+      </div>
+  `,
 })
 export class HouseDetailsComponent implements OnInit, OnDestroy {
     house: House;
@@ -34,6 +61,10 @@ export class HouseDetailsComponent implements OnInit, OnDestroy {
 
     gotoHouseList(){
         let link = ['/houses'];
+        this.router.navigate(link);
+    }
+    gotoCharacterList(){
+        let link = ['/characters'];
         this.router.navigate(link);
     }
 }

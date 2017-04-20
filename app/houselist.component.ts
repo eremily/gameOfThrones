@@ -5,20 +5,22 @@ import { House } from './house';
 @Component({
   selector: 'houselist',
   template: `
-    <h2>House List</h2>
-    <h3>{{house.name}}</h3>
     <section>
       <section *ngIf="isLoading && !errorMessage">
-      Loading our hyperdrives!!! Retrieving data...
+      Retrieving data..
       </section>
-        <ul>
-          <!-- this is the new syntax for ng-repeat -->
-          <li *ngFor="let house of house">
+          <div *ngFor="let house of house">
+            <div class="work">
               <a href="#" [routerLink]="['/houses', house.id]">
-            {{house.name}}
-            </a>
-          </li>
-        </ul>
+                <img src="img/house/{{house.id}}.jpg" class="media" alt=""/>
+                <div class="caption">
+                  <div class="work_title">
+                    <h1>{{house.name}}</h1>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
         <section *ngIf="errorMessage">
           {{errorMessage}}
         </section>

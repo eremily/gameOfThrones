@@ -10,11 +10,13 @@ import { HouseListComponent }  from './houselist.component';
 import { HouseDetailsComponent } from './house-details.component';
 import { CharacterListComponent }  from './characterlist.component';
 import { CharacterDetailsComponent } from './character-details.component';
+import { BookListComponent }  from './booklist.component';
+import { BookDetailsComponent } from './book-details.component';
 
 @NgModule({
   imports: [ BrowserModule, routing, FormsModule, HttpModule],
   declarations: [ AppComponent, HouseListComponent, HouseDetailsComponent,
-  CharacterListComponent, CharacterDetailsComponent],
+  CharacterListComponent, CharacterDetailsComponent,BookListComponent, BookDetailsComponent],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

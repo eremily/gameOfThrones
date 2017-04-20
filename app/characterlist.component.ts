@@ -1,36 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterService } from './character.service';
 import { Character } from './character';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Response } from '@angular/http';
-import * as global from './global';
 
 @Component({
   selector: 'characterlist',
   template: `
-    <h2>Character List</h2>
-    <h3>{{character.name}}</h3>
-    <section>
-      <section *ngIf="isLoading && !errorMessage">
-      Loading our hyperdrives!!! Retrieving data...
+      <section class="top">  
+        <div class="wrapper content_header clearfix">
+            <h2 class="title">Characters</h2>
+        </div>    
+      </section><!-- end top -->
+
+      <section class="wrapper">
+        <div class="content">
+              <h3>{{character.name}}</h3>
+              <section *ngIf="isLoading && !errorMessage">
+              Loading our hyperdrives!!! Retrieving data...
+              </section>
+                <ul>
+                  <li *ngFor="let character of character">
+                    <a *ngIf="isEmptyObject(character.name)" href="#" [routerLink]="['/characters', character.id]">
+                      Character {{character.id}}
+                    </a>
+                    <a href="#" [routerLink]="['/characters', character.id]">
+                      {{character.name}}
+                    </a>
+                  </li>
+                </ul>
+                <section *ngIf="errorMessage">
+                  {{errorMessage}}
+                </section>
+        </div><!-- end content -->
+        <button class="btn btn-default" (click)="gotoPrevCharacterList()">Previous Page</button>
+        <button class="btn btn-default" (click)="gotoNextCharacterList()">Next Page</button>
       </section>
-        <ul>
-          <!-- this is the new syntax for ng-repeat -->
-          <li *ngFor="let character of character">
-            <a *ngIf="isEmptyObject(character.name)" href="#" [routerLink]="['/characters', character.id]">
-              Character {{character.id}}
-            </a>
-            <a href="#" [routerLink]="['/characters', character.id]">
-              {{character.name}}
-            </a>
-          </li>
-        </ul>
-          <button (click)="gotoPrevCharacterList()">Previous Page</button>
-          <button (click)="gotoNextCharacterList()">Next Page</button>
-        <section *ngIf="errorMessage">
-          {{errorMessage}}
-        </section>
-    </section>
   `,
 })
 export class CharacterListComponent implements OnInit{ 
@@ -41,9 +45,7 @@ export class CharacterListComponent implements OnInit{
   private currentValue = 0;
 
 
-  constructor(private characterService: CharacterService,
-              private route: ActivatedRoute,
-              private router: Router){}
+  constructor(private characterService: CharacterService){}
   
   isEmptyObject(obj: any) {
     return (Object.keys(obj).length === 0);
@@ -58,7 +60,7 @@ export class CharacterListComponent implements OnInit{
          () => this.isLoading = false);
   }
 
-  //Go to next character pagination 
+  //Go to next pagination 
   gotoNextCharacterList(){
       this.characterService
       .goToNextCharactersPage()
@@ -66,20 +68,16 @@ export class CharacterListComponent implements OnInit{
          resCharacterData => this.character = resCharacterData,
          e => this.errorMessage = e,
          () => this.isLoading = false);
-        console.log("hii" + this.currentValue);
-        
   }
 
-  //Go to prev character pagination 
+  //Go to prev pagination 
   gotoPrevCharacterList(){
       this.characterService
       .goToPrevCharactersPage()
       .subscribe(
          resCharacterData => this.character = resCharacterData,
          e => this.errorMessage = e,
-         () => this.isLoading = false);
-        console.log("hii" + this.currentValue);
-        
+         () => this.isLoading = false);        
   }
 }
 

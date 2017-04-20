@@ -49,6 +49,7 @@ function toHouse(h:any): House{
     name: h.name,
     region: h.region,
     coatOfArms: h.coatOfArms,
+    swornMembers: h.swornMembers,
   });
   console.log('Parsed house:', house);
   return house;
