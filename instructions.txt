@@ -1,0 +1,15 @@
+Instructions on how to run interface
+
+1. Verify that you are running at least node v4.x.x and npm 3.x.x by running node -v and npm -v in a terminal/console window
+
+2. Clone this repo into new project folder: https://github.com/eremily/gameOfThrones.git
+
+3. cd path to folder 
+
+4. ‘npm install’ to install npm packages
+
+5. Download chrome Allow-Control-Allow-Origin: * https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en
+
+6. Enable cross origin sharing on chrome before running the project 
+
+7. ‘npm start’ to run page
